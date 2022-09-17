@@ -6,6 +6,9 @@ echo 'interface br0' | cat  ./1_dhcpcd.conf -  > ./2_dhcpcd.conf && sudo mv 2_dh
 
 sudo cp data/hostapd.conf /etc/hostapd/hostapd.conf
 
+
+sudo systemctl enable systemd-networkd
+
 #Ensure Wireless Operation
 
 sudo rfkill unblock wlan
