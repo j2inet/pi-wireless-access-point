@@ -29,7 +29,7 @@ sudo cp ./data/dnsmasq.conf /etc/dnsmasq.conf
 sudo rfkill unblock wlan
 #append hostapd configuration
 cat /etc/hostapd/hostapd.conf ./data/append.hostapd.conf > ./temp/hostapd.conf
-mc ./temp.hostapd.conf /etc/hostapd/hostapd.conf
+sudo mv ./temp/hostapd.conf /etc/hostapd/hostapd.conf
 
 
 
