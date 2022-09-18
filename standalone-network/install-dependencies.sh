@@ -13,7 +13,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt install -y netfilter-persistent iptables
 mkdir ./temp
 
 #Alter DHCP 
-cat /etc/dhcpcd.conf data/append.dhcpcd.conf > ./temp/modified.dhcpc.conf
+cat /etc/dhcpcd.conf data/append.dhcpcd.conf > ./temp/modified.dhcpcd.conf
 sudo mv ./temp/modified.dhcpcd.conf /etc/dhcpcd.conf
 
 #Enable Routing
@@ -28,7 +28,7 @@ sudo cp ./data/dnsmasq.conf /etc/dnsmasq.conf
 
 sudo rfkill unblock wlan
 #append hostapd configuration
-cat /etc/hostapd/hostapd.conf /data/append.hostapd.conf > ./temp/hostapd.conf
+cat /etc/hostapd/hostapd.conf ./data/append.hostapd.conf > ./temp/hostapd.conf
 mc ./temp.hostapd.conf /etc/hostapd/hostapd.conf
 
 
