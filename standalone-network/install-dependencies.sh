@@ -3,6 +3,9 @@ sudo apt-get upgrade -y
 sudo apt install hostapd -y
 sudo apt install dnsmasq -y
 
+sudo systemctl stop hostapd
+sudo systemctl stop dnsmasq
+
 
 #Enable the Wireless Network Service
 sudo systemctl unmask hostapd
@@ -15,6 +18,9 @@ mkdir ./temp
 #Alter DHCP 
 cat /etc/dhcpcd.conf data/append.dhcpcd.conf > ./temp/modified.dhcpcd.conf
 sudo mv ./temp/modified.dhcpcd.conf /etc/dhcpcd.conf
+
+sudo systemctl restart dhcpcd
+
 
 #Enable Routing
 sudo cp data/routed-ap.conf /etc/sysctl.d/routed-ap.conf
